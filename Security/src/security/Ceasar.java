@@ -36,7 +36,7 @@ final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 public String FileToString(File f) throws IOException
 {
-    BufferedReader reader = new BufferedReader(new FileReader(f.getName()));
+    BufferedReader reader = new BufferedReader(new FileReader(f));
 StringBuilder stringBuilder = new StringBuilder();
 String line = null;
 String ls = System.getProperty("line.separator");

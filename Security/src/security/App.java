@@ -261,7 +261,7 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        Type = "Decrypt" ; 
+        Type = "decrypt" ; 
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
@@ -273,13 +273,12 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        shift = jTextField2.getText();
-        out = jTextField1.getText();
         int s = Integer.valueOf(shift);
-      try{ if (meth == "Ceaser" && Type == "Crypt")
+
+      try{ if (meth == "Ceaser" && Type == "crypt")
         {  c.caesarEncipher(f , s, out);
         }
-      else if (meth == "Ceaser" && Type == "Decrypt")
+      else if (meth == "Ceaser" && Type == "decrypt")
         { c.caesarDecipher(f , s, out);
         }
       
@@ -289,10 +288,10 @@ public class App extends javax.swing.JFrame {
           // JOptionPane.showMessageDialog(null, "Votre clé est: " + rest , "Succee",  JOptionPane.INFORMATION_MESSAGE);
        }
 
-      else if (Type == "Crypt")
+      else if (Type == "crypt")
       {V.VigenereEncipher(f , shift, out);}
       
-       else if (Type == "Decrypt")
+       else if (Type == "decrypt")
       {V.VigenereDecipher(f , shift, out);}
       
         JOptionPane.showMessageDialog(null, "Succee", "InfoBox: " + "Succee", JOptionPane.INFORMATION_MESSAGE);

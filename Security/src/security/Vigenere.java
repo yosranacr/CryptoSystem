@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class Vigenere {
     
-    public String FileToString(File f) throws IOException
+public String FileToString(File f) throws IOException
 {
     BufferedReader reader = new BufferedReader(new FileReader(f.getName()));
 StringBuilder stringBuilder = new StringBuilder();
@@ -35,14 +35,23 @@ reader.close();
 String content = stringBuilder.toString();
 return content;
 }
+ 
+public void StringToFile(String s, String FileName) {
     
+}
+
+
     public void VigenereEncipher(File f ,String s,String out) throws IOException{
     String result = encrypt( f, s);
+    StringToFile(result, out);
+    
+    
     
 }
     
         public void VigenereDecipher(File f ,String s,String out) throws IOException{
     String result = decrypt( f, s);
+      StringToFile(result, out);
     
 }
     

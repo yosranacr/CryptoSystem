@@ -36,7 +36,7 @@ final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 public String FileToString(File f) throws IOException
 {
-    BufferedReader reader = new BufferedReader(new FileReader(f.getName()));
+    BufferedReader reader = new BufferedReader(new FileReader(f));
 StringBuilder stringBuilder = new StringBuilder();
 String line = null;
 String ls = System.getProperty("line.separator");
@@ -52,10 +52,11 @@ String content = stringBuilder.toString();
 return content;
 }
 
-public void StringToFile(String s, String FileName) {
-    
+public void StringToFile(String s, String fileName) throws IOException{
+    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+    writer.write(s);
+    writer.close();
 }
-
 public void caesarEncipher(File f ,int s,String out) throws IOException{
     String result = encrypt( s, f);
       StringToFile(result, out);

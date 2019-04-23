@@ -26,6 +26,7 @@ public class App extends javax.swing.JFrame {
     String shift;
     String meth;
     Ceasar c = new Ceasar();
+    Vigenere V = new Vigenere();
     File f;
     public App() {
         initComponents();
@@ -282,15 +283,16 @@ public class App extends javax.swing.JFrame {
         }
       
        else if (meth == "Ceaser" && Type == "Cryptana")
-       {   int rest = c.caesar_findGap(f); 
-            shift = "0";
-           JOptionPane.showMessageDialog(null, "Votre clé est: " + rest , "Succee",  JOptionPane.INFORMATION_MESSAGE);
+       {   //int rest = c.caesar_findGap(f); 
+           // shift = "0";
+          // JOptionPane.showMessageDialog(null, "Votre clé est: " + rest , "Succee",  JOptionPane.INFORMATION_MESSAGE);
        }
 
-      else if (Type == "decrypt")
-      {}
+      else if (Type == "crypt")
+      {V.VigenereEncipher(f , shift, out);}
       
-      
+       else if (Type == "decrypt")
+      {V.VigenereDecipher(f , shift, out);}
       
         JOptionPane.showMessageDialog(null, "Succee", "InfoBox: " + "Succee", JOptionPane.INFORMATION_MESSAGE);
       }

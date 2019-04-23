@@ -273,19 +273,24 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int s = Integer.valueOf(shift);
+        
+        System.out.println(shift + " " + f.getName() + " " + out);
 
-      try{ if (meth == "Ceaser" && Type == "crypt")
-        {  c.caesarEncipher(f , s, out);
+      try{ if (meth == "Ceaser" && Type == "Crypt")
+        { 
+            int s = Integer.valueOf(shift); 
+            c.caesarEncipher(f , s, out);
         }
       else if (meth == "Ceaser" && Type == "decrypt")
-        { c.caesarDecipher(f , s, out);
+        { int s = Integer.valueOf(shift);
+        c.caesarDecipher(f , s, out);
         }
       
        else if (meth == "Ceaser" && Type == "Cryptana")
-       {   //int rest = c.caesar_findGap(f); 
-           // shift = "0";
-          // JOptionPane.showMessageDialog(null, "Votre clé est: " + rest , "Succee",  JOptionPane.INFORMATION_MESSAGE);
+       {   int s = Integer.valueOf(shift);
+       int rest = c.analyse_frequence(f); 
+            shift = "0";
+           JOptionPane.showMessageDialog(null, "Votre clé est: " + rest , "Succee",  JOptionPane.INFORMATION_MESSAGE);
        }
 
       else if (Type == "crypt")
@@ -293,6 +298,14 @@ public class App extends javax.swing.JFrame {
       
        else if (Type == "decrypt")
       {V.VigenereDecipher(f , shift, out);}
+      
+       else if(meth == "veg" && Type == "Cryptana")
+               {
+                   System.out.print("hello");
+                   String Key = V.cryptanalysis(f);
+               
+               shift = "0";
+               JOptionPane.showMessageDialog(null, "Votre clé est: " + Key , "Succee",  JOptionPane.INFORMATION_MESSAGE);}
       
         JOptionPane.showMessageDialog(null, "Succee", "InfoBox: " + "Succee", JOptionPane.INFORMATION_MESSAGE);
       }

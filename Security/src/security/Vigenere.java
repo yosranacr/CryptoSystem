@@ -5,12 +5,50 @@
  */
 package security;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author Yosra Naceur
  */
+
+
 public class Vigenere {
-        static String encrypt(String text, final String key) {
+    
+    public String FileToString(File f) throws IOException
+{
+    BufferedReader reader = new BufferedReader(new FileReader(f.getName()));
+StringBuilder stringBuilder = new StringBuilder();
+String line = null;
+String ls = System.getProperty("line.separator");
+while ((line = reader.readLine()) != null) {
+	stringBuilder.append(line);
+	stringBuilder.append(ls);
+}
+// delete the last new line separator
+stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+reader.close();
+
+String content = stringBuilder.toString();
+return content;
+}
+    
+    public void VigenereEncipher(File f ,String s,String out) throws IOException{
+    String result = encrypt( f, s);
+    
+}
+    
+        public void VigenereDecipher(File f ,String s,String out) throws IOException{
+    String result = decrypt( f, s);
+    
+}
+    
+        String encrypt(File f,  String key) throws IOException {
+            
+        String text = FileToString(f);
         String res = "";
         text = text.toUpperCase();
         for (int i = 0, j = 0; i < text.length(); i++) {
@@ -22,7 +60,8 @@ public class Vigenere {
         return res;
     }
 
-    static String decrypt(String text, final String key) {
+        String decrypt(File f,  String key) throws IOException {
+        String text = FileToString(f);
         String res = "";
         text = text.toUpperCase();
         for (int i = 0, j = 0; i < text.length(); i++) {
